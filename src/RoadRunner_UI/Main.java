@@ -25,7 +25,10 @@ public class Main extends Application {
         visuals.moveUp();
         visuals.moveDown();
         visuals.moveDown();
-        visuals.moveDown();
+
+
+
+
 
 
 
