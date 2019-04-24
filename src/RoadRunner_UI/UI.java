@@ -2,10 +2,14 @@ package RoadRunner_UI;
 
 import RoadRunner_Logic.ReadFile;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -118,6 +122,7 @@ public class UI extends Application{
                 pane.setHgap(5);
                 pane.setVgap(5);
                 pane.setAlignment(Pos.CENTER);
+                pane.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
 
 
 
