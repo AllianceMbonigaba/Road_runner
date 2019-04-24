@@ -13,7 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-
+import javafx.scene.control.Button;
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -142,7 +142,21 @@ public class UI extends Application{
         }
     }
 
-    public GridPane left
+    public GridPane leftButtons(){
+        GridPane buttons = new GridPane();
+
+        buttons.setVgap(5);
+        buttons.setHgap(5);
+        buttons.setAlignment(Pos.BOTTOM_LEFT);
+
+        buttons.add(undo, 0, 0);
+        buttons.add(redo, 0, 1);
+        buttons.add(alldirection, 0, 2);
+        buttons.add(reset, 0, 3);
+
+
+        return buttons;
+    }
 
 
 

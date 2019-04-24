@@ -26,7 +26,7 @@ public class Main extends Application {
 
 
 
-        root.getChildren().add(visuals.pane);
+        root.getChildren().addAll(visuals.pane, visuals.leftButtons());
 
         Scene scene = new Scene(root, 550, 600);
 
