@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 
+import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,6 +22,15 @@ import java.util.List;
 
 
 public class UI extends Application{
+
+    public Button reset = new Button("Reset");
+    public Button redo = new Button("Redo");
+    public Button undo = new Button("Undo");
+    public Button alldirection = new Button("Enable 8 Directions");
+
+    public Button A = new Button("Solve with A*");
+    public Button dijksta = new Button("Solve with Dijksta");
+    public Button dfs = new Button("Solve with DFS");
 
 
     int[] currentPosRoadRunner = new int[2];
@@ -131,6 +141,8 @@ public class UI extends Application{
 
         }
     }
+
+    public GridPane left
 
 
 
