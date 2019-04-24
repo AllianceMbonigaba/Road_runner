@@ -34,6 +34,9 @@ public class Main extends Application {
 
 
 
+
+
+
         root.getChildren().add(visuals.pane);
 
 
