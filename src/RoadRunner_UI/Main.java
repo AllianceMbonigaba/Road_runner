@@ -23,8 +23,9 @@ public class Main extends Application {
         //visuals.linkingImage();
         visuals.moveUp();
         visuals.moveUp();
-        visuals.moveDown();
-        visuals.moveDown();
+
+
+
 
 
 

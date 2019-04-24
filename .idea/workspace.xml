@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42136a8e-25d0-4961-8351-52467d90e715" name="Default Changelist" comment="Working on Part 2">
+    <list default="true" id="42136a8e-25d0-4961-8351-52467d90e715" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" afterDir="false" />
     </list>
@@ -18,23 +19,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="196" column="49" lean-forward="true" selection-start-line="196" selection-start-column="49" selection-end-line="196" selection-end-column="49" />
+            <state relative-caret-position="-418">
+              <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#618#2613#0" />
+                <element signature="method#changeImgAt#0;class#UI#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+            <state relative-caret-position="313">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#179#180#0" expanded="true" />
@@ -89,8 +92,8 @@
         <option value="$PROJECT_DIR$/src/environment/gameObjects.java" />
         <option value="$PROJECT_DIR$/src/Test Inputs/sample_test_input_1.txt" />
         <option value="$PROJECT_DIR$/src/RoadRunner_Logic/ReadFile.java" />
-        <option value="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" />
         <option value="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" />
+        <option value="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" />
       </list>
     </option>
   </component>
@@ -232,6 +235,21 @@
       <option name="presentableId" value="Default" />
       <updated>1555675112715</updated>
     </task>
+    <task id="LOCAL-00001" summary="Working on Part 2">
+      <created>1556123713209</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556123713210</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Working on Part 2">
+      <created>1556125554727</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556125554727</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -306,20 +324,6 @@
     <MESSAGE value="Working on Part 2" />
     <option name="LAST_COMMIT_MESSAGE" value="Working on Part 2" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java</url>
-          <line>149</line>
-          <properties class="RoadRunner_UI.UI" method="putAltImage">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/environment/gameObjects.java" />
     <entry file="file://$PROJECT_DIR$/src/Image Files/boulder.jpg">
@@ -360,24 +364,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="196" column="49" lean-forward="true" selection-start-line="196" selection-start-column="49" selection-end-line="196" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        <state relative-caret-position="313">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#179#180#0" expanded="true" />
             <element signature="e#207#208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#618#2613#0" />
+            <element signature="method#changeImgAt#0;class#UI#0" />
           </folding>
         </state>
       </provider>

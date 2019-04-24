@@ -178,6 +178,8 @@ public class UI extends Application{
         previousPosRoadRunner[1] = currentPosRoadRunner[1];
     }
 
+
+
     public void moveUp(){
         if (currentPosRoadRunner[0] > 0 && !(isVisited(currentPosRoadRunner[0]- 1, currentPosRoadRunner[1]))){
             switchToPrevious();
@@ -219,6 +221,88 @@ public class UI extends Application{
         }
 
     }
+
+    public void moveLeft(){
+        if (currentPosRoadRunner[1] > 0 && !(isVisited(currentPosRoadRunner[0], currentPosRoadRunner[1] - 1))){
+            switchToPrevious();
+
+
+            // hold the image index to be changed
+            int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
+
+
+            // put alt image
+            putAltImage(toBeChanged);
+
+            changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1] - 1, 7);
+            Integer[] visitedCell = {currentPosRoadRunner[0], currentPosRoadRunner[1] - 1};
+            currentPosRoadRunner[1] = currentPosRoadRunner[1] - 1;
+            visited.add(visitedCell);
+
+        }
+    }
+
+    public void moveRight(){
+        if (currentPosRoadRunner[1] < file.columnSize - 1 && !(isVisited(currentPosRoadRunner[0], currentPosRoadRunner[1] + 1))){
+            switchToPrevious();
+
+
+            // hold the image index to be changed
+            int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
+
+
+            // put alt image
+            putAltImage(toBeChanged);
+
+            changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1] + 1, 7);
+            Integer[] visitedCell = {currentPosRoadRunner[0], currentPosRoadRunner[1] + 1};
+            currentPosRoadRunner[1] = currentPosRoadRunner[1] + 1;
+            visited.add(visitedCell);
+
+        }
+    }
+
+    public void northWest(){
+        if (currentPosRoadRunner[1] < file.columnSize - 1 && !(isVisited(currentPosRoadRunner[0], currentPosRoadRunner[1] + 1))){
+            switchToPrevious();
+
+
+            // hold the image index to be changed
+            int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
+
+
+            // put alt image
+            putAltImage(toBeChanged);
+
+            changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1] + 1, 7);
+            Integer[] visitedCell = {currentPosRoadRunner[0], currentPosRoadRunner[1] + 1};
+            currentPosRoadRunner[1] = currentPosRoadRunner[1] + 1;
+            visited.add(visitedCell);
+
+        }
+    }
+
+    public void northEast(){
+        if (currentPosRoadRunner[1] < file.columnSize - 1 && !(isVisited(currentPosRoadRunner[0], currentPosRoadRunner[1] + 1))){
+            switchToPrevious();
+
+
+            // hold the image index to be changed
+            int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
+
+
+            // put alt image
+            putAltImage(toBeChanged);
+
+            changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1] + 1, 7);
+            Integer[] visitedCell = {currentPosRoadRunner[0], currentPosRoadRunner[1] + 1};
+            currentPosRoadRunner[1] = currentPosRoadRunner[1] + 1;
+            visited.add(visitedCell);
+
+        }
+    }
+
+
 
 
 
