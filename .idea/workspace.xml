@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42136a8e-25d0-4961-8351-52467d90e715" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/roadRunnerProjectPersonal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/boulder.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/coyote.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/coyote_alt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/explosive.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/explosive_alt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/goal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/gold.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/gold_alt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/pothole.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/pothole_alt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/road.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/road_alt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/road_runner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/start.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/tarred.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Image Files/tarred_alt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RoadRunner_Logic/ReadFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test Inputs/sample_test_input_1.txt" afterDir="false" />
+    <list default="true" id="42136a8e-25d0-4961-8351-52467d90e715" name="Default Changelist" comment="Working on Part 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1890">
-              <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+            <state relative-caret-position="128">
+              <caret line="196" column="49" lean-forward="true" selection-start-line="196" selection-start-column="49" selection-end-line="196" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="315">
+              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#179#180#0" expanded="true" />
@@ -107,8 +89,15 @@
         <option value="$PROJECT_DIR$/src/environment/gameObjects.java" />
         <option value="$PROJECT_DIR$/src/Test Inputs/sample_test_input_1.txt" />
         <option value="$PROJECT_DIR$/src/RoadRunner_Logic/ReadFile.java" />
-        <option value="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" />
         <option value="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" />
+        <option value="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
       </list>
     </option>
   </component>
@@ -145,6 +134,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555709450528" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -246,8 +236,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28115502" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.022796353" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -257,16 +248,16 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27795032" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2765625" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39906833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33125" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.33125" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Flutter Performance" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32919255" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.328125" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -311,12 +302,16 @@
       <window_info anchor="right" id="Capture Analysis" order="9" />
     </layout-to-restore>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Working on Part 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on Part 2" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java</url>
-          <line>154</line>
+          <line>149</line>
           <properties class="RoadRunner_UI.UI" method="putAltImage">
             <option name="EMULATED" value="true" />
           </properties>
@@ -365,24 +360,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="128">
+          <caret line="196" column="49" lean-forward="true" selection-start-line="196" selection-start-column="49" selection-end-line="196" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#207#208#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
+    <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1890">
-          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        <state relative-caret-position="315">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#179#180#0" expanded="true" />
+            <element signature="e#207#208#0" expanded="true" />
           </folding>
         </state>
       </provider>

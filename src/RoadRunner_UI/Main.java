@@ -23,6 +23,12 @@ public class Main extends Application {
         //visuals.linkingImage();
         visuals.moveUp();
         visuals.moveUp();
+        visuals.moveDown();
+        visuals.moveDown();
+        visuals.moveDown();
+
+
+
 
         root.getChildren().add(visuals.pane);
 

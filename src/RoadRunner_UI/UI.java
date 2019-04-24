@@ -120,12 +120,7 @@ public class UI extends Application{
         }
     }
 
-    public boolean checkBoundary(){
-       if (currentPosRoadRunner[0] > 0 || currentPosRoadRunner[0] < file.rowSize || currentPosRoadRunner[1] > 0 || currentPosRoadRunner[1] < file.columnSize){
-           return true;
-       }
-       return false;
-    }
+
 
 
     // adding image at given position in the Gridpane
@@ -155,11 +150,10 @@ public class UI extends Application{
     public void putAltImage(int imgIndexTochange){
         if(imgIndexTochange != 1 && imgIndexTochange != 8 && imgIndexTochange != 9 && imgIndexTochange != 7){
             changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1], imgIndexTochange + 10);
-            System.out.println("this is the one running");
-            System.out.println(originalFileArray[previousPosRoadRunner[0]][previousPosRoadRunner[1]]);
+
         }
         else {
-
+            System.out.println("This is 8");
             changeImgAt(previousPosRoadRunner[0], previousPosRoadRunner[1], originalFileArray[previousPosRoadRunner[0]][previousPosRoadRunner[1]]);
 
         }
@@ -175,13 +169,13 @@ public class UI extends Application{
     }
 
     public void moveUp(){
-        if (checkBoundary() && !(isVisited(currentPosRoadRunner[0]- 1, currentPosRoadRunner[1]))){
+        if (currentPosRoadRunner[0] > 0 && !(isVisited(currentPosRoadRunner[0]- 1, currentPosRoadRunner[1]))){
             switchToPrevious();
 
 
             // hold the image index to be changed
-            int toBeChanged = fileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
-
+            int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
+            System.out.println(toBeChanged);
 
             // put alt image
             putAltImage(toBeChanged);
@@ -196,6 +190,23 @@ public class UI extends Application{
     }
 
     public void moveDown(){
+        if (currentPosRoadRunner[0] < file.rowSize && !(isVisited(currentPosRoadRunner[0] + 1, currentPosRoadRunner[1]))){
+            switchToPrevious();
+
+
+            // hold the image index to be changed
+            int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
+
+
+            // put alt image
+            putAltImage(toBeChanged);
+
+            changeImgAt(currentPosRoadRunner[0] + 1, currentPosRoadRunner[1], 7);
+            int[] visitedCell = {currentPosRoadRunner[0] + 1, currentPosRoadRunner[1]};
+            currentPosRoadRunner[0] = currentPosRoadRunner[0] + 1;
+            visited.add(visitedCell);
+
+        }
 
     }
 
