@@ -23,6 +23,8 @@ import java.util.List;
 
 public class UI extends Application{
 
+    int allowUndo = 0;
+    int[] holdLastPos = new int[1];
     public Button reset = new Button("Reset");
     public Button redo = new Button("Redo");
     public Button undo = new Button("Undo");
@@ -35,6 +37,7 @@ public class UI extends Application{
 
     int[] currentPosRoadRunner = new int[2];
     int[] previousPosRoadRunner = new int[2];
+    public Boolean checkAllDirection = false;
 
     ArrayList<Integer[]> visited = new ArrayList<>();
 
@@ -42,6 +45,8 @@ public class UI extends Application{
     String text;
     int[][] fileArray;
     int[][] originalFileArray;
+    int[][] toHome;
+
 
     GridPane pane = new GridPane();
     Scene scene = new Scene(pane, 500, 500);
@@ -50,7 +55,9 @@ public class UI extends Application{
         text = file.read_file(fileParth);
         fileArray = file.toArray(text);
         originalFileArray = file.toArray(text);
-        linkingImage();
+
+
+        linkingImage(fileArray);
     }
 
 
@@ -103,11 +110,11 @@ public class UI extends Application{
     }
 
     /** Method linking the images in their respective array position*/
-    public void linkingImage(){
-        for (int i=0; i<fileArray.length; i++){
-            for (int j=0; j<fileArray[i].length; j++){
+    public void linkingImage(int[][] _fileArray){
+        for (int i=0; i<_fileArray.length; i++){
+            for (int j=0; j<_fileArray[i].length; j++){
 
-                int number = fileArray[i][j];
+                int number = _fileArray[i][j];
 
                 // get current position of the rood runner / start image at index 8
                 if(number == 8){
@@ -158,6 +165,12 @@ public class UI extends Application{
         return buttons;
     }
 
+    public void reset(){
+        visited.clear();
+        linkingImage(originalFileArray);
+    }
+
+
 
 
 
@@ -178,7 +191,7 @@ public class UI extends Application{
     }
 
     public Boolean isVisited(int row, int column){
-        int[] arr = {row, column};
+
 
         for(int i = 0 ; i < visited.size(); i++){
 
@@ -220,7 +233,7 @@ public class UI extends Application{
 
             // hold the image index to be changed
             int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
-            System.out.println(toBeChanged);
+
 
             // put alt image
             putAltImage(toBeChanged);
@@ -361,6 +374,38 @@ public class UI extends Application{
             visited.add(visitedCell);
 
         }
+
+    }
+
+
+    public void undo(){
+        try{
+            int rowToMoveTo = visited.get(visited.size() - 2)[0];
+            int columnToMoveTo = visited.get(visited.size() - 2)[1];
+
+            changeImgAt(rowToMoveTo, columnToMoveTo, 7);
+            currentPosRoadRunner[0] = rowToMoveTo;
+            currentPosRoadRunner[1] = columnToMoveTo;
+            System.out.println(visited.size());
+
+
+            int lastRow = visited.get(visited.size() - 1)[0];
+            int lastColumn = visited.get(visited.size() - 1)[1];
+            int originalImg = originalFileArray[lastRow][lastColumn];
+            changeImgAt(lastRow, lastColumn, originalImg);
+
+            holdLastPos[0] = lastRow;
+            holdLastPos[1] = lastColumn;
+
+            visited.remove(visited.size() - 1);
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("index out of bound");
+        }
+
+
+
+
+
 
     }
 
