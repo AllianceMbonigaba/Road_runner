@@ -24,7 +24,7 @@ public class Node {
 
 
 
-
+    /** Method to set the node data and calculate final cost*/
     public void setNodeData(Node currentNode, int cost) {
         int gCost = currentNode.getG() + cost;
         setParent(currentNode);
@@ -32,6 +32,7 @@ public class Node {
         calculateFinalCost();
     }
 
+    /** Method which checks for the better path*/
     public boolean checkBetterPath(Node currentNode, int cost) {
         int gCost = currentNode.getG() + cost;
         if (gCost < getG()) {
@@ -41,15 +42,17 @@ public class Node {
         return false;
     }
 
-    /** Method to calculate the */
+    /** Method to calculate the Heuristic cost*/
     public void calculateHeuristic(Node target) {
         this.h = Math.abs(target.getRow() - getRow()) + Math.abs(target.getCol() - getCol());
     }
 
+    /** Method to calculate the final cost*/
     private void calculateFinalCost() {
         int finalCost = getG() + getH();
         setF(finalCost);
     }
+
 
     @Override
     public boolean equals(Object arg0) {
@@ -57,11 +60,13 @@ public class Node {
         return this.getRow() == other.getRow() && this.getCol() == other.getCol();
     }
 
+    /** A to string method to print a strint in reference of an object*/
     @Override
     public String toString() {
-        return "Node [row=" + row + ", col=" + column + "]";
+        return "row=" + row + ", col=" + column + "";
     }
 
+    
     public int getH() {
         return h;
     }
