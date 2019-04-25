@@ -47,7 +47,8 @@ public class AStar {
     }
 
 
-    /** Method to return the path of the algorithm*/
+    /** Method to return the path of the algorithm
+     * Time Complexity: O(n)*/
     public List<Node> findPath() {
         openList.add(initialNode);
         while (!isEmpty(openList)) {
@@ -62,6 +63,10 @@ public class AStar {
         return new ArrayList<Node>();
     }
 
+    /** Method to set score for each node
+     * Time Complexity: O(n*m)
+     * Space Complexity: O(n+m)
+     * Auxiliary Space: O(1)*/
     private void setNodes() {
         for (int i = 0; i < searchArea.length; i++) {
             for (int j = 0; j < searchArea[0].length; j++) {
@@ -72,6 +77,7 @@ public class AStar {
         }
     }
 
+    
     public void setBlocks(int[][] blocksArray) {
         for (int i = 0; i < blocksArray.length; i++) {
             int row = blocksArray[i][0];
@@ -134,10 +140,14 @@ public class AStar {
         int upperRow = row - 1;
         if (upperRow >= 0) {
             if (col - 1 >= 0) {
-//                checkNode(currentNode, col - 1, upperRow, getDiagonalCost()); // Comment this if diagonal movements are not allowed
+                if (allowed8Directions){
+                    checkNode(currentNode, col - 1, upperRow, getDiagonalCost());
+                }
             }
             if (col + 1 < getSearchArea()[0].length) {
-//                checkNode(currentNode, col + 1, upperRow, getDiagonalCost()); // Comment this if diagonal movements are not allowed
+                if (allowed8Directions){
+                    checkNode(currentNode, col + 1, upperRow, getDiagonalCost());
+                }
             }
             checkNode(currentNode, col, upperRow, getHvCost());
         }
@@ -152,8 +162,6 @@ public class AStar {
             } else {
                 boolean changed = adjacentNode.checkBetterPath(currentNode, cost);
                 if (changed) {
-                    // Remove and Add the changed node, so that the PriorityQueue can sort again its
-                    // contents with the modified "finalCost" value of the modified node
                     getOpenList().remove(adjacentNode);
                     getOpenList().add(adjacentNode);
                 }
