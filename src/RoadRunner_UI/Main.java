@@ -1,5 +1,6 @@
 package RoadRunner_UI;
 
+import RoadRunner_Logic.Node;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -37,6 +38,8 @@ public class Main extends Application {
         Scene scene = new Scene(root, 550, 600);
 
 
+
+
         // move roan runner upon four directions on keypress
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -50,7 +53,23 @@ public class Main extends Application {
                         visuals.moveLeft(); break;
                     case RIGHT:
                         visuals.moveRight(); break;
-                    default:
+                    case Q:
+                        if(visuals.checkAllDirection){
+                            visuals.moveNW(); break;
+                        }
+
+                    case W:
+                        if(visuals.checkAllDirection){
+                            visuals.moveNE(); break;
+                        }
+                    case S:
+                        if(visuals.checkAllDirection){
+                            visuals.moveSE(); break;
+                        }
+                    case A:
+                        if(visuals.checkAllDirection){
+                            visuals.moveSW(); break;
+                        }
 
                 }
             }
@@ -64,6 +83,21 @@ public class Main extends Application {
                     }
                 }
         );
+
+        visuals.A.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent Onclick) {
+                        visuals.astarPath(new Node(0, 1), new Node(8, 12)); // reset the grid to original
+                    }
+                }
+        );
+
+
+//        if(visuals.checkAllDirection){
+//
+//
+//        }
 
 
 
@@ -85,25 +119,8 @@ public class Main extends Application {
                     public void handle(ActionEvent Onclick) {
                         if(visuals.checkAllDirection){
                             visuals.alldirection.setText("Enable 8 Directions");
-                            scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-                                @Override
-                                public void handle(KeyEvent event) {
-                                    switch (event.getCode()){
 
-                                case Q:
-                                    visuals.moveNW();
-
-                                case W:
-                                    visuals.moveNE();
-                                case A:
-                                    visuals.moveSW();
-                                case S:
-                                    visuals.moveSE();
-
-                                }
-                             }
-                        });
-                        visuals.checkAllDirection = false;
+                            visuals.checkAllDirection = false;
 
                         } else{
                             visuals.alldirection.setText("Disable 8 Directions");
@@ -112,6 +129,7 @@ public class Main extends Application {
                     }
                 }
         );
+
 
 
 

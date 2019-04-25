@@ -1,5 +1,7 @@
 package RoadRunner_UI;
 
+import RoadRunner_Logic.AStar;
+import RoadRunner_Logic.Node;
 import RoadRunner_Logic.ReadFile;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -19,9 +21,14 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.HashMap;
 
 
 public class UI extends Application{
+
+    int undocount = 1;
+
+    int checkScore = 0;
 
     int allowUndo = 0;
     int[] holdLastPos = new int[1];
@@ -133,8 +140,8 @@ public class UI extends Application{
                 Image image = new Image(imageArray[number]);
                 ImageView view = new ImageView(image);
                 view.setPreserveRatio(true);
-                view.setFitHeight(100);
-                view.setFitWidth(100);
+                view.setFitHeight(50);
+                view.setFitWidth(50);
 
                 pane.setHgap(5);
                 pane.setVgap(5);
@@ -160,10 +167,14 @@ public class UI extends Application{
         buttons.add(redo, 0, 1);
         buttons.add(alldirection, 0, 2);
         buttons.add(reset, 0, 3);
+        buttons.add(A, 0, 4);
 
 
         return buttons;
     }
+
+
+
 
     public void reset(){
         visited.clear();
@@ -206,7 +217,7 @@ public class UI extends Application{
     public void putAltImage(int imgIndexTochange){
         if(imgIndexTochange != 1 && imgIndexTochange != 8 && imgIndexTochange != 9 && imgIndexTochange != 7){
             changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1], imgIndexTochange + 10);
-
+            getscore(imgIndexTochange);
         }
         else {
 
@@ -233,6 +244,7 @@ public class UI extends Application{
 
             // hold the image index to be changed
             int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
+
 
 
             // put alt image
@@ -294,8 +306,8 @@ public class UI extends Application{
 
 
             // hold the image index to be changed
-            int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
 
+            int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
 
             // put alt image
             putAltImage(toBeChanged);
@@ -316,14 +328,15 @@ public class UI extends Application{
             // hold the image index to be changed
             int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
 
-
             // put alt image
             putAltImage(toBeChanged);
 
             changeImgAt(currentPosRoadRunner[0] - 1, currentPosRoadRunner[1] - 1, 7);
             Integer[] visitedCell = {currentPosRoadRunner[0] - 1, currentPosRoadRunner[1] - 1};
             currentPosRoadRunner[1] = currentPosRoadRunner[1] - 1;
-            currentPosRoadRunner[0] = currentPosRoadRunner[1] - 1;
+
+            currentPosRoadRunner[0] = currentPosRoadRunner[0] - 1;
+
             visited.add(visitedCell);
 
         }
@@ -336,7 +349,6 @@ public class UI extends Application{
 
             // hold the image index to be changed
             int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
-
 
             // put alt image
             putAltImage(toBeChanged);
@@ -361,7 +373,6 @@ public class UI extends Application{
             // hold the image index to be changed
             int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
 
-
             // put alt image
             putAltImage(toBeChanged);
 
@@ -377,7 +388,9 @@ public class UI extends Application{
 
     }
 
+    public void redo(){
 
+    }
     public void undo(){
         try{
             int rowToMoveTo = visited.get(visited.size() - 2)[0];
@@ -389,8 +402,8 @@ public class UI extends Application{
             System.out.println(visited.size());
 
 
-            int lastRow = visited.get(visited.size() - 1)[0];
-            int lastColumn = visited.get(visited.size() - 1)[1];
+            int lastRow = visited.get(visited.size() - undocount)[0];
+            int lastColumn = visited.get(visited.size() - undocount)[1];
             int originalImg = originalFileArray[lastRow][lastColumn];
             changeImgAt(lastRow, lastColumn, originalImg);
 
@@ -398,6 +411,7 @@ public class UI extends Application{
             holdLastPos[1] = lastColumn;
 
             visited.remove(visited.size() - 1);
+            undocount ++;
         }catch (ArrayIndexOutOfBoundsException e){
             System.out.println("index out of bound");
         }
@@ -433,6 +447,85 @@ public class UI extends Application{
         }
 
     }
+
+    /** Method that returns an array containing paths created by a* algorithm
+     * Time Complexity 0(E) where E is number of edges traversed*/
+
+    public ArrayList<String> astarPath(Node start, Node end){
+        int rows = file.rowSize;
+        int columns = file.columnSize;
+//        int[][]blocks = new int[][]{{14,14}};
+        ArrayList<String> path = new ArrayList<>();
+        AStar astar = new AStar(rows, columns, start, end);
+        if(checkAllDirection){
+            astar.allowed8Directions = true;
+        }
+//        astar.setBlocks(blocks);
+        List<Node> findpath = astar.findPath();
+
+        int StartedRow = start.getRow();
+        int StartedCol = start.getCol();
+        for (Node node: findpath){
+            int movedRow = node.getRow();
+            int movedCol = node.getCol();
+
+            int rowDifference = StartedRow - movedRow;
+            int colDifference = StartedCol - movedCol;
+
+            if (rowDifference == 1 && colDifference == 0){
+                path.add("North");
+                moveUp();
+            }
+            else if (rowDifference == 0 && colDifference == 1){
+                path.add("West");
+                moveLeft();
+            }
+            else if (rowDifference == -1 && colDifference == 0){
+                path.add("South");
+                moveDown();
+            }
+            else if (rowDifference == 0 && colDifference == -1){
+                path.add("East");
+                moveRight();
+            }
+            else if (rowDifference == 1 && colDifference == 1){
+                path.add("NorthWest");
+                moveNW();
+            }
+            else if (rowDifference == 1 && colDifference == -1){
+                path.add("NorthEast");
+                moveNE();
+            }
+            else if (rowDifference == -1 && colDifference == 1){
+                path.add("SouthWest");
+                moveSW();
+            }
+            else if (rowDifference == -1 && colDifference == -1){
+                path.add("SouthEast");
+                moveSE();
+            }
+
+            StartedRow = movedRow;
+            StartedCol = movedCol;
+        }
+
+        return path;
+    }
+
+    public void getscore(int number){
+        HashMap<Integer, Integer> score = new HashMap<>();
+        score.put(0, -1);
+        score.put(2, -2);
+        score.put(3, -4);
+        score.put(4, -8);
+        score.put(5, 1);
+        score.put(6, 5);
+
+        checkScore += score.get(number);
+
+    }
+
+
 
 
 
