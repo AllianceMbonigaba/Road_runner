@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42136a8e-25d0-4961-8351-52467d90e715" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/RoadRunner_Logic/AStar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RoadRunner_Logic/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test Inputs/test_input_10_15_basic_daf.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test Inputs/test_input_10_15_unsolvable.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test Inputs/test_input_15_15_intricate_daf.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_Logic/ReadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_Logic/ReadFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoadRunner_Logic/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_Logic/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,12 +19,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="520" column="24" lean-forward="true" selection-start-line="520" selection-start-column="24" selection-end-line="520" selection-end-column="24" />
+            <state relative-caret-position="63">
+              <caret line="456" column="47" lean-forward="true" selection-start-line="456" selection-start-column="47" selection-end-line="456" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#618#2613#0" />
-                <element signature="e#15970#17824#0" />
               </folding>
             </state>
           </provider>
@@ -44,7 +31,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_Logic/ReadFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1757">
+            <state relative-caret-position="84">
               <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
@@ -54,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/Test Inputs/test_input_10_15_basic_daf.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -63,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/src/Test Inputs/test_input_15_15_intricate_daf.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+              <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -71,13 +58,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-945">
-              <caret line="26" column="135" selection-start-line="26" selection-start-column="135" selection-end-line="26" selection-end-column="135" />
+            <state relative-caret-position="574">
+              <caret line="93" column="10" lean-forward="true" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#179#180#0" expanded="true" />
-                <element signature="e#207#208#0" expanded="true" />
+                <element signature="e#2471#2472#0" expanded="true" />
                 <element signature="e#2563#2564#0" expanded="true" />
+                <element signature="e#3204#3205#0" expanded="true" />
                 <element signature="e#3297#3298#0" expanded="true" />
               </folding>
             </state>
@@ -87,8 +74,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_Logic/AStar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="-1694">
               <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RoadRunner_Logic/Node.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-812">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -96,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test Inputs/sample_test_input_1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="21">
               <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
             </state>
           </provider>
@@ -152,6 +148,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,8 +184,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -354,14 +350,21 @@
       <option name="project" value="LOCAL" />
       <updated>1556175743689</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Working on Part 2">
+      <created>1556195468478</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1556195468478</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20972644" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21352583" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -472,68 +475,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test Inputs/sample_test_input_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/pp-ii-the-road-runner-alliance-mbonigaba-kevin-sebineza-kevin/src/RoadRunner_Logic/Node.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/Desktop/pp-ii-the-road-runner-alliance-mbonigaba-kevin-sebineza-kevin/src/RoadRunner_Logic/ReadFile.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoadRunner_Logic/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/Test Inputs/test_input_10_15_basic_daf.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoadRunner_Logic/AStar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        <state relative-caret-position="210">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test Inputs/test_input_15_15_intricate_daf.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test Inputs/test_input_10_15_basic_daf.txt">
+    <entry file="file://$PROJECT_DIR$/src/Test Inputs/sample_test_input_1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        <state relative-caret-position="21">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoadRunner_Logic/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-812">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoadRunner_Logic/AStar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1694">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="520" column="24" lean-forward="true" selection-start-line="520" selection-start-column="24" selection-end-line="520" selection-end-column="24" />
+        <state relative-caret-position="63">
+          <caret line="456" column="47" lean-forward="true" selection-start-line="456" selection-start-column="47" selection-end-line="456" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#618#2613#0" />
-            <element signature="e#15970#17824#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-945">
-          <caret line="26" column="135" selection-start-line="26" selection-start-column="135" selection-end-line="26" selection-end-column="135" />
+        <state relative-caret-position="574">
+          <caret line="93" column="10" lean-forward="true" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#207#208#0" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
             <element signature="e#2563#2564#0" expanded="true" />
+            <element signature="e#3204#3205#0" expanded="true" />
             <element signature="e#3297#3298#0" expanded="true" />
           </folding>
         </state>
@@ -541,7 +542,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RoadRunner_Logic/ReadFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1757">
+        <state relative-caret-position="84">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
