@@ -4,9 +4,12 @@ import RoadRunner_Logic.AStar;
 import RoadRunner_Logic.Node;
 import RoadRunner_Logic.ReadFile;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -18,10 +21,10 @@ import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import java.awt.*;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.HashMap;
+
+import static javafx.application.Application.launch;
 
 
 public class UI extends Application{
@@ -30,17 +33,27 @@ public class UI extends Application{
 
     int checkScore = 0;
 
+
+    public String pathMap = "";
+    public Boolean setANewStart = false;
+
     int allowUndo = 0;
     int[] holdLastPos = new int[1];
     public Button reset = new Button("Reset");
     public Button redo = new Button("Redo");
     public Button undo = new Button("Undo");
     public Button alldirection = new Button("Enable 8 Directions");
+    public Button loadNewMap = new Button("Load New Map");
+    public Button setSart = new Button("Pick Start");
 
     public Button A = new Button("Solve with A*");
     public Button dijksta = new Button("Solve with Dijksta");
     public Button dfs = new Button("Solve with DFS");
 
+
+    // start position and goal position
+    public int [] goalPos = new int[2];
+    public int [] startPos = new int [2];
 
     int[] currentPosRoadRunner = new int[2];
     int[] previousPosRoadRunner = new int[2];
@@ -115,6 +128,8 @@ public class UI extends Application{
     public static void main(String[] args) {
         launch(args);
     }
+    @Override
+    public void start(Stage primaryStage){}
 
     /** Method linking the images in their respective array position*/
     public void linkingImage(int[][] _fileArray){
@@ -123,10 +138,22 @@ public class UI extends Application{
 
                 int number = _fileArray[i][j];
 
-                // get current position of the rood runner / start image at index 8
+                int newSartRow = i;
+                int newSartColumn = j;
+
+
+                // get Road runner goal position
+                if (number == 9){
+                    goalPos[0] = i; // row
+                    goalPos[1] = j; // column
+
+                }
+
+                // get current position of the road runner / start image at index 8
                 if(number == 8){
 
-
+                    startPos[0] = i;
+                    startPos[1] = j;
                     currentPosRoadRunner[0] = i; // row
 
                     currentPosRoadRunner[1] = j; // column
@@ -143,6 +170,27 @@ public class UI extends Application{
                 view.setFitHeight(50);
                 view.setFitWidth(50);
 
+                view.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+
+
+                        // This will execute whenever the image is clicked.
+                        System.out.println("You have pressed me");
+                        int imgToReplace = fileArray[newSartRow][newSartColumn];
+                        changeImgAt(startPos[0], startPos[1], imgToReplace);
+                        changeImgAt(newSartRow, newSartColumn, 8);
+                        visited.clear();
+
+//                        currentPosRoadRunner[0] = newSartRow;
+//                        currentPosRoadRunner[1] = newSartColumn;
+
+                        // linkingImage(fileArray);
+
+
+                    }
+                });
+
                 pane.setHgap(5);
                 pane.setVgap(5);
                 pane.setAlignment(Pos.CENTER);
@@ -156,6 +204,8 @@ public class UI extends Application{
         }
     }
 
+
+
     public GridPane leftButtons(){
         GridPane buttons = new GridPane();
 
@@ -168,6 +218,7 @@ public class UI extends Application{
         buttons.add(alldirection, 0, 2);
         buttons.add(reset, 0, 3);
         buttons.add(A, 0, 4);
+        buttons.add(setSart, 1, 4);
 
 
         return buttons;
@@ -181,6 +232,10 @@ public class UI extends Application{
         linkingImage(originalFileArray);
     }
 
+    public void pickSart(){
+
+    }
+
 
 
 
@@ -192,8 +247,8 @@ public class UI extends Application{
 
 
         view.setPreserveRatio(true);
-        view.setFitHeight(100);
-        view.setFitWidth(100);
+        view.setFitHeight(50);
+        view.setFitWidth(50);
 
 
         pane.add(view, column, row);
@@ -309,6 +364,7 @@ public class UI extends Application{
 
             int toBeChanged = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
 
+
             // put alt image
             putAltImage(toBeChanged);
 
@@ -356,7 +412,7 @@ public class UI extends Application{
             changeImgAt(currentPosRoadRunner[0] - 1, currentPosRoadRunner[1] + 1, 7);
             Integer[] visitedCell = {currentPosRoadRunner[0] - 1, currentPosRoadRunner[1] + 1};
             currentPosRoadRunner[1] = currentPosRoadRunner[1] + 1;
-            currentPosRoadRunner[0] = currentPosRoadRunner[1] - 1;
+            currentPosRoadRunner[0] = currentPosRoadRunner[0] - 1;
             visited.add(visitedCell);
 
         }
@@ -379,7 +435,7 @@ public class UI extends Application{
             changeImgAt(currentPosRoadRunner[0] + 1, currentPosRoadRunner[1] - 1, 7);
             Integer[] visitedCell = {currentPosRoadRunner[0] + 1, currentPosRoadRunner[1] - 1};
 
-            currentPosRoadRunner[0] = currentPosRoadRunner[1] + 1;
+            currentPosRoadRunner[0] = currentPosRoadRunner[0] + 1;
             currentPosRoadRunner[1] = currentPosRoadRunner[1] - 1;
 
             visited.add(visitedCell);
@@ -388,9 +444,32 @@ public class UI extends Application{
 
     }
 
+    // redo the last action
     public void redo(){
 
     }
+
+
+    // setting new start
+    public  void setNewStart(){
+
+
+    }
+
+    // loading a new map
+    public void loadNewMap(){
+        System.out.println("Copy and past path for the new map on the next line; ");
+        Scanner path = new Scanner(System.in);
+        String pathValue = path.nextLine();
+
+        text = file.read_file(pathValue);
+        fileArray = file.toArray(text);
+        originalFileArray = file.toArray(text);
+
+        linkingImage(fileArray);
+    }
+
+
     public void undo(){
         try{
             int rowToMoveTo = visited.get(visited.size() - 2)[0];
@@ -416,11 +495,6 @@ public class UI extends Application{
             System.out.println("index out of bound");
         }
 
-
-
-
-
-
     }
 
 
@@ -439,7 +513,7 @@ public class UI extends Application{
             changeImgAt(currentPosRoadRunner[0] + 1, currentPosRoadRunner[1] + 1, 7);
             Integer[] visitedCell = {currentPosRoadRunner[0] + 1, currentPosRoadRunner[1] + 1};
 
-            currentPosRoadRunner[0] = currentPosRoadRunner[1] + 1;
+            currentPosRoadRunner[0] = currentPosRoadRunner[0] + 1;
             currentPosRoadRunner[1] = currentPosRoadRunner[1] + 1;
 
             visited.add(visitedCell);
@@ -512,6 +586,8 @@ public class UI extends Application{
         return path;
     }
 
+
+
     public void getscore(int number){
         HashMap<Integer, Integer> score = new HashMap<>();
         score.put(0, -1);
@@ -530,9 +606,6 @@ public class UI extends Application{
 
 
     /** Creating the stage*/
-    @Override
-    public void start(Stage primaryStage) {
 
-    }
 
 }

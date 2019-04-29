@@ -33,7 +33,7 @@ public class Main extends Application {
 
 
 
-        root.getChildren().addAll(visuals.pane, visuals.leftButtons());
+        root.getChildren().addAll(visuals.leftButtons(), visuals.pane);
 
         Scene scene = new Scene(root, 550, 600);
 
@@ -75,6 +75,8 @@ public class Main extends Application {
             }
         });
 
+
+
         visuals.undo.setOnAction(
                 new EventHandler<ActionEvent>() {
                     @Override
@@ -88,7 +90,7 @@ public class Main extends Application {
                 new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent Onclick) {
-                        visuals.astarPath(new Node(0, 1), new Node(8, 12)); // reset the grid to original
+                        visuals.astarPath(new Node(visuals.startPos[0], visuals.startPos[1]), new Node(visuals.goalPos[0], visuals.goalPos[1])); // reset the grid to original
                     }
                 }
         );
@@ -131,7 +133,7 @@ public class Main extends Application {
         );
 
 
-
+        // visuals.loadNewMap();
 
 
 
