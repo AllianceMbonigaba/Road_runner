@@ -150,9 +150,7 @@ public class UI extends Application{
                 int[] g = new int[2];
                 g[0] = newSartRow;
                 g[1] = newSartColumn;
-                if(number == 1){
-                    blocks = new int[][]{{i,j}};
-                }
+
 
                 // get Road runner goal position
                 if (number == 9){
@@ -276,7 +274,7 @@ public class UI extends Application{
             linkingImage(originalFileArray);
         }
 
-        setANewStart = true;
+
 
     }
 
@@ -603,7 +601,7 @@ public class UI extends Application{
             astar.allowed8Directions = true;
         }
 
-
+        String message = "";
         astar.setBlocks(blocks);
         List<Node> findpath = astar.findPath();
 
@@ -619,35 +617,44 @@ public class UI extends Application{
             if (rowDifference == 1 && colDifference == 0){
                 path.add("North");
                 moveUp();
+                message += "North\n";
             }
             else if (rowDifference == 0 && colDifference == 1){
                 path.add("West");
                 moveLeft();
+                message += "West\n";
             }
             else if (rowDifference == -1 && colDifference == 0){
                 path.add("South");
                 moveDown();
+                message += "South\n";
             }
             else if (rowDifference == 0 && colDifference == -1){
                 path.add("East");
                 moveRight();
+                message += "East\n";
             }
             else if (rowDifference == 1 && colDifference == 1){
                 path.add("NorthWest");
                 moveNW();
+                message += "NorthWest\n";
             }
             else if (rowDifference == 1 && colDifference == -1){
                 path.add("NorthEast");
                 moveNE();
+                message += "NorthEast\n";
             }
             else if (rowDifference == -1 && colDifference == 1){
                 path.add("SouthWest");
                 moveSW();
+                message += "SouthWest\n";
             }
             else if (rowDifference == -1 && colDifference == -1){
                 path.add("SouthEast");
                 moveSE();
+                message += "SouthEast\n";
             }
+
 
             StartedRow = movedRow;
             StartedCol = movedCol;
