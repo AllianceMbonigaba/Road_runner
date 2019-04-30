@@ -48,6 +48,7 @@ public class UI extends Application{
     public Button alldirection = new Button("Enable 8 Directions");
     public Button loadNewMap = new Button("Load New Map");
     public Button setSart = new Button("Pick Start");
+    public Button score = new Button("Score: " + checkScore);
 
     public Button A = new Button("Solve with A*");
     public Button dijksta = new Button("Solve with Dijksta");
@@ -247,6 +248,7 @@ public class UI extends Application{
         buttons.add(A, 0, 4);
         buttons.add(setSart, 0, 5);
         buttons.add(loadNewMap, 0, 6);
+        buttons.add(score, 0, 7);
 
 
 
@@ -258,6 +260,8 @@ public class UI extends Application{
 
     public void reset(){
         visited.clear();
+        checkScore = 0;
+        score.setText("Score: "+ checkScore);
 
         if(setANewStart){
             linkingImage(toHome);
@@ -310,6 +314,7 @@ public class UI extends Application{
         if(imgIndexTochange != 1 && imgIndexTochange != 8 && imgIndexTochange != 9 && imgIndexTochange != 7){
             changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1], imgIndexTochange + 10);
             getscore(imgIndexTochange);
+            score.setText("Score: "+ checkScore);
         }
         else {
 

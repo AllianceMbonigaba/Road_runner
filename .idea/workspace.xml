@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/roadRunnerProjectPersonal/RoadRunner_UI/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_UI/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoadRunner_UI/UI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="515" column="30" selection-start-line="515" selection-start-column="30" selection-end-line="515" selection-end-column="30" />
+            <state relative-caret-position="101">
+              <caret line="262" column="45" lean-forward="true" selection-start-line="262" selection-start-column="45" selection-end-line="262" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,13 +34,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="75" column="11" lean-forward="true" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+            <state relative-caret-position="525">
+              <caret line="27" column="142" selection-start-line="27" selection-start-column="142" selection-end-line="27" selection-end-column="142" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2473#2474#0" expanded="true" />
-                <element signature="e#2565#2566#0" expanded="true" />
-                <element signature="e#3697#3698#0" expanded="true" />
+                <element signature="e#2474#2475#0" expanded="true" />
+                <element signature="e#2566#2567#0" expanded="true" />
+                <element signature="e#2773#2774#0" expanded="true" />
+                <element signature="e#2843#2844#0" expanded="true" />
+                <element signature="e#4115#4116#0" expanded="true" />
+                <element signature="e#4411#4412#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,6 +69,7 @@
       <find>gets</find>
       <find>switchToPrevious()</find>
       <find>reset</find>
+      <find>getscore</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -320,14 +323,28 @@
       <option name="project" value="LOCAL" />
       <updated>1556580448636</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Working on Part 2">
+      <created>1556613500851</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1556613500851</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Working on Part 2">
+      <created>1556622564405</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1556622564405</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18237083" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18237083" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -368,13 +385,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java</url>
-          <line>79</line>
+          <line>81</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java</url>
-          <line>497</line>
+          <line>529</line>
           <properties class="RoadRunner_UI.UI" method="undo">
             <option name="EMULATED" value="true" />
           </properties>
@@ -468,21 +485,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="75" column="11" lean-forward="true" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+        <state relative-caret-position="525">
+          <caret line="27" column="142" selection-start-line="27" selection-start-column="142" selection-end-line="27" selection-end-column="142" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2473#2474#0" expanded="true" />
-            <element signature="e#2565#2566#0" expanded="true" />
-            <element signature="e#3697#3698#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+            <element signature="e#2566#2567#0" expanded="true" />
+            <element signature="e#2773#2774#0" expanded="true" />
+            <element signature="e#2843#2844#0" expanded="true" />
+            <element signature="e#4115#4116#0" expanded="true" />
+            <element signature="e#4411#4412#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RoadRunner_UI/UI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="515" column="30" selection-start-line="515" selection-start-column="30" selection-end-line="515" selection-end-column="30" />
+        <state relative-caret-position="101">
+          <caret line="262" column="45" lean-forward="true" selection-start-line="262" selection-start-column="45" selection-end-line="262" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
