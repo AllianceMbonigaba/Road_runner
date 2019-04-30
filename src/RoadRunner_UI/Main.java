@@ -4,6 +4,7 @@ import RoadRunner_Logic.Node;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -24,14 +25,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        UI visuals = new UI("C:\\Users\\ALU STUDENT\\IdeaProjects\\roadRunnerProjectPersonal\\src\\Test Inputs\\sample_test_input_1.txt");
+        UI visuals = new UI("C:\\Users\\ALU STUDENT\\IdeaProjects\\roadRunnerProjectPersonal\\src\\Test Inputs\\test_input_10_15_basic_daf.txt");
         primaryStage.setTitle("Road Runner");
         StackPane root = new StackPane();
 
         //visuals.changeImgAt(1, 1, 2);
         //visuals.linkingImage();
 
-
+        visuals.pane.setAlignment(Pos.TOP_CENTER);
+        visuals.buttons.setAlignment(Pos.BOTTOM_LEFT);
 
         root.getChildren().addAll(visuals.pane, visuals.leftButtons());
 
@@ -86,6 +88,16 @@ public class Main extends Application {
                 }
         );
 
+
+        visuals.redo.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent Onclick) {
+                        visuals.redo(); // redo
+                    }
+                }
+        );
+
         visuals.A.setOnAction(
                 new EventHandler<ActionEvent>() {
                     @Override
@@ -100,6 +112,7 @@ public class Main extends Application {
                 new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent Onclick) {
+
                         visuals.reset();
                         visuals.setANewStart = true;
                     }
@@ -122,6 +135,15 @@ public class Main extends Application {
                     @Override
                     public void handle(ActionEvent Onclick) {
                         visuals.reset(); // reset the grid to original
+                    }
+                }
+        );
+
+        visuals.loadNewMap.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent Onclick) {
+                        visuals.loadNewMap(); // load new map
                     }
                 }
         );

@@ -38,7 +38,7 @@ public class UI extends Application{
 
 
     public String pathMap = "";
-    public Boolean setANewStart = true;
+    public Boolean setANewStart = false;
 
 
     int[] holdLastPos = new int[1];
@@ -72,12 +72,13 @@ public class UI extends Application{
 
 
     GridPane pane = new GridPane();
-    Scene scene = new Scene(pane, 500, 500);
+
 
     public UI(String fileParth){
         text = file.read_file(fileParth);
         fileArray = file.toArray(text);
         originalFileArray = file.toArray(text);
+        toHome = file.toArray(text);
 
 
         linkingImage(fileArray);
@@ -174,6 +175,8 @@ public class UI extends Application{
                 view.setFitHeight(50);
                 view.setFitWidth(50);
 
+
+                // set new start
                 view.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
@@ -185,10 +188,14 @@ public class UI extends Application{
                             int imgToReplace = fileArray[newSartRow][newSartColumn];
 
                             changeImgAt(startPos[0], startPos[1], imgToReplace);
-                            linkingImage(fileArray);
-                            changeImgAt(newSartRow, newSartColumn, 8);
+                            originalFileArray[startPos[0]][startPos[1]] = imgToReplace;
 
-                            linkingImage(fileArray);
+                            changeImgAt(newSartRow, newSartColumn, 8);
+                            originalFileArray[newSartRow][newSartColumn] = 8;
+
+
+
+                            setANewStart = false;
 
 
 //                        currentPosRoadRunner[0] = newSartRow;
@@ -207,7 +214,7 @@ public class UI extends Application{
                 pane.setHgap(5);
                 pane.setVgap(5);
                 pane.maxHeight(50);
-                pane.setAlignment(Pos.CENTER);
+
                 pane.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
 
 
@@ -218,24 +225,28 @@ public class UI extends Application{
         }
     }
 
+    GridPane buttons = new GridPane();
 
 
     public GridPane leftButtons(){
-        GridPane buttons = new GridPane();
 
         buttons.setVgap(5);
         buttons.setHgap(5);
 
-        buttons.setAlignment(Pos.BOTTOM_CENTER);
 
-        buttons.setMaxHeight(2);
+
+
+
+        buttons.setMaxHeight(10);
+
 
         buttons.add(undo, 0, 0);
-        buttons.add(redo, 1, 0);
-        buttons.add(alldirection, 2, 0);
-        buttons.add(reset, 3, 0);
-        buttons.add(A, 4, 0);
-        buttons.add(setSart, 5, 0);
+        buttons.add(redo, 0, 1);
+        buttons.add(alldirection, 0, 2);
+        buttons.add(reset, 0, 3);
+        buttons.add(A, 0, 4);
+        buttons.add(setSart, 0, 5);
+        buttons.add(loadNewMap, 0, 6);
 
 
 
@@ -247,7 +258,15 @@ public class UI extends Application{
 
     public void reset(){
         visited.clear();
-        linkingImage(originalFileArray);
+
+        if(setANewStart){
+            linkingImage(toHome);
+        }else {
+            linkingImage(originalFileArray);
+        }
+
+        setANewStart = true;
+
     }
 
     public void pickSart(){
@@ -471,7 +490,16 @@ public class UI extends Application{
 
     // redo the last action
     public void redo(){
+        if(!redoStack.isEmpty()){
+            Integer[] goTo = redoStack.pop();
+            changeImgAt(goTo[0], goTo[1], 7);
+            visited.add(goTo);
+            undoStack.push(goTo);
 
+            changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1], originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]] + 10);
+            currentPosRoadRunner[0] = goTo[0];
+            currentPosRoadRunner[1] = goTo[1];
+        }
     }
 
 
@@ -497,8 +525,10 @@ public class UI extends Application{
 
     public void undo(){
 
-        if((!undoStack.isEmpty()) && undocount < 3 ){
 
+        if((!undoStack.isEmpty()) && undocount < 4 ){
+
+            System.out.println(undocount);
             int orgImg = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
             changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1], orgImg);
             Integer[] toPop = undoStack.pop();
@@ -515,6 +545,7 @@ public class UI extends Application{
             if(undocount == 3){
                 undocount = 0;
             }
+
 
         }
 
