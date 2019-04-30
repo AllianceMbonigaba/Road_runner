@@ -29,15 +29,18 @@ import static javafx.application.Application.launch;
 
 public class UI extends Application{
 
-    int undocount = 1;
+    int undocount = 0;
 
     int checkScore = 0;
 
+    Stack <Integer[]> undoStack = new Stack<>();
+    Stack <Integer []> redoStack = new Stack<>();
+
 
     public String pathMap = "";
-    public Boolean setANewStart = false;
+    public Boolean setANewStart = true;
 
-    int allowUndo = 0;
+
     int[] holdLastPos = new int[1];
     public Button reset = new Button("Reset");
     public Button redo = new Button("Redo");
@@ -161,6 +164,7 @@ public class UI extends Application{
                     Integer[] visitedCell = {currentPosRoadRunner[0], currentPosRoadRunner[1]};
 
                     visited.add(visitedCell);
+                    undoStack.push(visitedCell);
 
                 }
 
@@ -173,19 +177,28 @@ public class UI extends Application{
                 view.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
+                        if(setANewStart){
 
+                            // This will execute whenever the image is clicked.
+                            visited.clear();
+                            undoStack.clear();
+                            int imgToReplace = fileArray[newSartRow][newSartColumn];
 
-                        // This will execute whenever the image is clicked.
-                        System.out.println("You have pressed me");
-                        int imgToReplace = fileArray[newSartRow][newSartColumn];
-                        changeImgAt(startPos[0], startPos[1], imgToReplace);
-                        changeImgAt(newSartRow, newSartColumn, 8);
-                        visited.clear();
+                            changeImgAt(startPos[0], startPos[1], imgToReplace);
+                            linkingImage(fileArray);
+                            changeImgAt(newSartRow, newSartColumn, 8);
+
+                            linkingImage(fileArray);
+
 
 //                        currentPosRoadRunner[0] = newSartRow;
 //                        currentPosRoadRunner[1] = newSartColumn;
 
-                        // linkingImage(fileArray);
+
+                        }
+
+
+
 
 
                     }
@@ -193,6 +206,7 @@ public class UI extends Application{
 
                 pane.setHgap(5);
                 pane.setVgap(5);
+                pane.maxHeight(50);
                 pane.setAlignment(Pos.CENTER);
                 pane.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
 
@@ -211,14 +225,18 @@ public class UI extends Application{
 
         buttons.setVgap(5);
         buttons.setHgap(5);
-        buttons.setAlignment(Pos.BOTTOM_LEFT);
+
+        buttons.setAlignment(Pos.BOTTOM_CENTER);
+
+        buttons.setMaxHeight(2);
 
         buttons.add(undo, 0, 0);
-        buttons.add(redo, 0, 1);
-        buttons.add(alldirection, 0, 2);
-        buttons.add(reset, 0, 3);
-        buttons.add(A, 0, 4);
-        buttons.add(setSart, 1, 4);
+        buttons.add(redo, 1, 0);
+        buttons.add(alldirection, 2, 0);
+        buttons.add(reset, 3, 0);
+        buttons.add(A, 4, 0);
+        buttons.add(setSart, 5, 0);
+
 
 
         return buttons;
@@ -309,6 +327,7 @@ public class UI extends Application{
             Integer[] visitedCell = {currentPosRoadRunner[0] - 1, currentPosRoadRunner[1]};
             currentPosRoadRunner[0] = currentPosRoadRunner[0] - 1;
             visited.add(visitedCell);
+            undoStack.push(visitedCell);
 
         }
 
@@ -330,6 +349,7 @@ public class UI extends Application{
             Integer[] visitedCell = {currentPosRoadRunner[0] + 1, currentPosRoadRunner[1]};
             currentPosRoadRunner[0] = currentPosRoadRunner[0] + 1;
             visited.add(visitedCell);
+            undoStack.push(visitedCell);
 
         }
 
@@ -351,6 +371,7 @@ public class UI extends Application{
             Integer[] visitedCell = {currentPosRoadRunner[0], currentPosRoadRunner[1] - 1};
             currentPosRoadRunner[1] = currentPosRoadRunner[1] - 1;
             visited.add(visitedCell);
+            undoStack.push(visitedCell);
 
         }
     }
@@ -372,6 +393,7 @@ public class UI extends Application{
             Integer[] visitedCell = {currentPosRoadRunner[0], currentPosRoadRunner[1] + 1};
             currentPosRoadRunner[1] = currentPosRoadRunner[1] + 1;
             visited.add(visitedCell);
+            undoStack.push(visitedCell);
 
         }
     }
@@ -394,6 +416,7 @@ public class UI extends Application{
             currentPosRoadRunner[0] = currentPosRoadRunner[0] - 1;
 
             visited.add(visitedCell);
+            undoStack.push(visitedCell);
 
         }
     }
@@ -414,6 +437,7 @@ public class UI extends Application{
             currentPosRoadRunner[1] = currentPosRoadRunner[1] + 1;
             currentPosRoadRunner[0] = currentPosRoadRunner[0] - 1;
             visited.add(visitedCell);
+            undoStack.push(visitedCell);
 
         }
 
@@ -439,6 +463,7 @@ public class UI extends Application{
             currentPosRoadRunner[1] = currentPosRoadRunner[1] - 1;
 
             visited.add(visitedCell);
+            undoStack.push(visitedCell);
 
         }
 
@@ -471,29 +496,28 @@ public class UI extends Application{
 
 
     public void undo(){
-        try{
-            int rowToMoveTo = visited.get(visited.size() - 2)[0];
-            int columnToMoveTo = visited.get(visited.size() - 2)[1];
 
-            changeImgAt(rowToMoveTo, columnToMoveTo, 7);
-            currentPosRoadRunner[0] = rowToMoveTo;
-            currentPosRoadRunner[1] = columnToMoveTo;
-            System.out.println(visited.size());
+        if((!undoStack.isEmpty()) && undocount < 3 ){
 
+            int orgImg = originalFileArray[currentPosRoadRunner[0]][currentPosRoadRunner[1]];
+            changeImgAt(currentPosRoadRunner[0], currentPosRoadRunner[1], orgImg);
+            Integer[] toPop = undoStack.pop();
 
-            int lastRow = visited.get(visited.size() - undocount)[0];
-            int lastColumn = visited.get(visited.size() - undocount)[1];
-            int originalImg = originalFileArray[lastRow][lastColumn];
-            changeImgAt(lastRow, lastColumn, originalImg);
+            visited.remove(toPop);
 
-            holdLastPos[0] = lastRow;
-            holdLastPos[1] = lastColumn;
+            redoStack.push(toPop);
 
-            visited.remove(visited.size() - 1);
-            undocount ++;
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("index out of bound");
+            //Integer[] toMoveTo = undoStack.pop();
+            changeImgAt(toPop[0], toPop[1], 7);
+            currentPosRoadRunner[0] = toPop[0];
+            currentPosRoadRunner[1] = toPop[1];
+            undocount++;
+            if(undocount == 3){
+                undocount = 0;
+            }
+
         }
+
 
     }
 
@@ -517,6 +541,7 @@ public class UI extends Application{
             currentPosRoadRunner[1] = currentPosRoadRunner[1] + 1;
 
             visited.add(visitedCell);
+            undoStack.push(visitedCell);
 
         }
 

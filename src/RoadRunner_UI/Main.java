@@ -33,9 +33,9 @@ public class Main extends Application {
 
 
 
-        root.getChildren().addAll(visuals.leftButtons(), visuals.pane);
+        root.getChildren().addAll(visuals.pane, visuals.leftButtons());
 
-        Scene scene = new Scene(root, 550, 600);
+        Scene scene = new Scene(root, 1000, 600);
 
 
 
@@ -94,6 +94,19 @@ public class Main extends Application {
                     }
                 }
         );
+
+
+        visuals.setSart.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent Onclick) {
+                        visuals.reset();
+                        visuals.setANewStart = true;
+                    }
+                }
+        );
+
+
 
 
 //        if(visuals.checkAllDirection){
