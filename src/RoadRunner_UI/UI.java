@@ -31,6 +31,7 @@ public class UI extends Application{
 
     int undocount = 0;
 
+
     int checkScore = 0;
 
     Stack <Integer[]> undoStack = new Stack<>();
@@ -85,7 +86,7 @@ public class UI extends Application{
         linkingImage(fileArray);
     }
 
-
+    int[][] blocks = new int[file.rowSize][file.columnSize];
     //
     /* Image array Kevin path
     String[] imageArray = {"file:C:\\Users\\ALU Student 100\\IdeaProjects\\Road_runner_Kevin&Alliance\\src\\Image Files\\road.jpg",
@@ -146,6 +147,12 @@ public class UI extends Application{
                 int newSartRow = i;
                 int newSartColumn = j;
 
+                int[] g = new int[2];
+                g[0] = newSartRow;
+                g[1] = newSartColumn;
+                if(number == 1){
+                    blocks = new int[][]{{i,j}};
+                }
 
                 // get Road runner goal position
                 if (number == 9){
@@ -589,13 +596,15 @@ public class UI extends Application{
     public ArrayList<String> astarPath(Node start, Node end){
         int rows = file.rowSize;
         int columns = file.columnSize;
-//        int[][]blocks = new int[][]{{14,14}};
+
         ArrayList<String> path = new ArrayList<>();
         AStar astar = new AStar(rows, columns, start, end);
         if(checkAllDirection){
             astar.allowed8Directions = true;
         }
-//        astar.setBlocks(blocks);
+
+
+        astar.setBlocks(blocks);
         List<Node> findpath = astar.findPath();
 
         int StartedRow = start.getRow();
